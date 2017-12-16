@@ -31,6 +31,10 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 > 784]，None意味着图像数量不限定，784表示每张图表示成784个点的一维向量，线性回归的参数W，维度为[784,
 > 10]，线性回归的参数b，维度为[10]，让W和x矩阵相乘，加上b，然后计算softmax，softmax(x)=normalize(exp(x))，y_为用来存放正确的y结果，使用交叉熵cross_entropy，以在后面使用梯度下降法根据交叉熵确定最佳的W和b，train_step，使用梯度下降法最小化交叉熵
 
+
+
+
+
 ```python
 #x用来存放图像，维度为[None, 784]，None意味着图像数量不限定，784表示每张图表示成784个点的一维向量
 x = tf.placeholder(tf.float32, [None, 784])
@@ -59,6 +63,8 @@ sess.run(init)
 ```
 
 
+
+
 > 使用mnist.train中的图像矩阵和标签训练线性回归模型，确定W和b的最佳值
 
 ```python
@@ -69,6 +75,10 @@ for i in range(1000):
     #根据最小梯度下降法降低交叉熵
     sess.run(train_step, {x: batch_xs, y_: batch_ys})
 ```
+
+
+
+
 
 
 > 训练完之后，W和b的值被确定下来，使用mnist.test中的图像矩阵和标签进行测试，计算准确率
@@ -84,8 +94,19 @@ print("accuracy", sess.run(accuracy, feed_dict = {x: mnist.test.images, y_: mnis
 ```
 
 
+
+
+
 输出准确率为：0.9006
+
+
+
 ![image_1c1fjl2hv15nt153q16331uug10tpm.png-7.5kB][2]
+
+
+
+
+
 
 
 > 拿test_digits文件夹中的10张图像进行测试，输出预测结果
@@ -110,10 +131,29 @@ for i in range(10):
 	print(sess.run(tf.argmax(y_r, 1)))
 
 ```
+
+
+
+
 输入测试图像：
 ![image_1c1fjmjib1suf1jk21kat17651elc1g.png-50.9kB][3]
 输出结果正确：
 ![image_1c1fjlq0uietjkj2bs476abf13.png-37.1kB][4]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ----------
