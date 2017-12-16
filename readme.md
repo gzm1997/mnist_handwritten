@@ -27,6 +27,9 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 ```
 
 
+----------
+
+
 > 使用线性回归模型进行识别，下面声明各个模型中的变量，x用来存放图像，维度为[None,
 > 784]，None意味着图像数量不限定，784表示每张图表示成784个点的一维向量，线性回归的参数W，维度为[784,
 > 10]，线性回归的参数b，维度为[10]，让W和x矩阵相乘，加上b，然后计算softmax，softmax(x)=normalize(exp(x))，y_为用来存放正确的y结果，使用交叉熵cross_entropy，以在后面使用梯度下降法根据交叉熵确定最佳的W和b，train_step，使用梯度下降法最小化交叉熵
@@ -52,7 +55,7 @@ cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 ```
 
-
+----------
 
 > 初始化模型中的各种变量
 ```python
@@ -63,7 +66,7 @@ sess.run(init)
 ```
 
 
-
+----------
 
 > 使用mnist.train中的图像矩阵和标签训练线性回归模型，确定W和b的最佳值
 
@@ -77,7 +80,7 @@ for i in range(1000):
 ```
 
 
-
+----------
 
 
 
@@ -105,7 +108,7 @@ print("accuracy", sess.run(accuracy, feed_dict = {x: mnist.test.images, y_: mnis
 
 
 
-
+----------
 
 
 
@@ -136,8 +139,13 @@ for i in range(10):
 
 
 输入测试图像：
+
 ![image_1c1fjmjib1suf1jk21kat17651elc1g.png-50.9kB][3]
+
+
+
 输出结果正确：
+
 ![image_1c1fjlq0uietjkj2bs476abf13.png-37.1kB][4]
 
 
