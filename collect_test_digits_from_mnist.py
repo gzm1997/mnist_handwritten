@@ -1,3 +1,7 @@
+'''
+由于自己手写的数字图像用来测试会得到很低的准确率，根据本人实验，觉得应该是图像风格所致，所以此py文件用于从mnist.test中生成用于测试的图像，再拿这些图像处理后测试
+'''
+
 import tensorflow.examples.tutorials.mnist.input_data as input_data
 from PIL import Image
 
